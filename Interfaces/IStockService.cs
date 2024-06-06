@@ -8,6 +8,7 @@ namespace Stocks_Management.Interfaces
         Task<List<Stock>> GetAllStocks();
         Task<Stock> GetByIdAsync(int id);
         Task<Stock> AddAsync(Stock stock);
+        Task<Stock> UpdateAsync(Stock stock);
 
         Task<Stock> Remove(Stock stock);
 

@@ -40,10 +40,11 @@ public class DBRepository<TEntity> : IDBRepository<TEntity> where TEntity : clas
         return entity;
     }
 
-    public async Task UpdateAsync(TEntity entity)
+    public async Task<TEntity> UpdateAsync(TEntity entity)
     {
         _entities.Update(entity);
         await _context.SaveChangesAsync();
+        return entity;
     }
 
     /// <summary>

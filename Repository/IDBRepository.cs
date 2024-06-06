@@ -14,7 +14,7 @@ namespace Stocks_Management.Repository
         Task<IEnumerable<TEntity>> GetAllAsync();
         Task<IEnumerable<TEntity>> FindAsync(Expression<Func<TEntity, bool>> predicate);
         Task<TEntity> AddAsync(TEntity entity);
-        Task UpdateAsync(TEntity entity);
+        Task<TEntity> UpdateAsync(TEntity entity);
         Task<TEntity> Remove(TEntity entity);
 
     }

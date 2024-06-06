@@ -10,6 +10,9 @@ namespace Stocks_Management.Mapper
         {
             CreateMap<Stock, VMCreateStock>().ReverseMap();
             CreateMap<Stock, VMGetStock>().ReverseMap();
+
+            CreateMap<Order, VMCreateOrder>().ReverseMap();
+            CreateMap<Order, VMGetOrder>().ReverseMap();
         }
     }
 }

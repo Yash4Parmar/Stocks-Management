@@ -34,5 +34,10 @@ namespace Stocks_Management.Services
             return _stockRepo.Remove(stock);
 
         }
+
+        public async Task<Stock> UpdateAsync(Stock stock)
+        {
+            return await _stockRepo.UpdateAsync(stock);
+        }
     }
 }

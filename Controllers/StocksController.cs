@@ -51,7 +51,7 @@ namespace Stocks_Management.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<VMGetStock>> AddHoliday([FromBody] VMCreateStock vMCreateStock)
+        public async Task<ActionResult<VMGetStock>> AddStock([FromBody] VMCreateStock vMCreateStock)
         {
             var stockToBeAdded = new Stock
             {

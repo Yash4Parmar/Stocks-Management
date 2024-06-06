@@ -13,6 +13,7 @@ namespace Stocks_Management.Configuration
         public static void AddRepoServices(this IServiceCollection services)
         {
             services.AddScoped<IStockService, StockService>();
+            services.AddScoped<IOrderService, OrderService>();
         }
     }
 }
