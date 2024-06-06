@@ -73,7 +73,7 @@ namespace Stocks_Management.Controllers
             var orderToBeAdded = new Order
             {
                 CustomerName = vMCreateOrder.CustomerName,
-                Sid = vMCreateOrder.Sid,
+                Sid = (int)vMCreateOrder.Sid,
                 Quantity = vMCreateOrder.Quantity
             };
 

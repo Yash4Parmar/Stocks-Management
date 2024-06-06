@@ -5,7 +5,7 @@ using Stocks_Management.ViewModels;
 
 namespace Stocks_Management.Services
 {
-    public class StockService : IStockService
+    public class StockService : IStockService   
     {
         public IDBRepository<Stock> _stockRepo { get; }
 

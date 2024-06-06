@@ -14,12 +14,15 @@ namespace Stocks_Management.Controllers
     public class StocksController : ControllerBase
     {
         public IStockService _stockService;
+        public IOrderService _orderService;
+
         public IMapper _mapper { get; }
 
-        public StocksController(IStockService stockService, IMapper mapper)
+        public StocksController(IStockService stockService, IMapper mapper, IOrderService orderService)
         {
             _stockService = stockService;
             _mapper = mapper;
+            _orderService = orderService;
         }
 
         [HttpGet]
@@ -78,7 +81,12 @@ namespace Stocks_Management.Controllers
             {
                 return NotFound(new Response<object>(MESSAGE.DATA_NOT_FOUND, false));
             }
-
+            var orders = await _orderService.GetAllOrders();
+            var stockOrders = orders.FindAll(x => x.Sid == Id);
+            if (!(stockOrders.Count <= 0))
+            {
+                return Ok(new Response("Stock with 0 oreders can't be deleted!", false));
+            }
             _stockService?.Remove(stock);
 
             var mappedStock = _mapper.Map<VMGetStock>(stock);

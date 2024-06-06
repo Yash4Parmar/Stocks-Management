@@ -23,6 +23,21 @@ namespace Stocks_Management
 
             builder.Services.AddTransient<ExceptionMiddelware>();
 
+            builder.Services.AddCors();
+
+            //CORS
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAllOrigins",
+                    builder =>
+                    {
+                        builder.AllowAnyOrigin()
+                               .AllowAnyMethod()
+                               .AllowAnyHeader();
+                    });
+            });
+
+
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
@@ -33,6 +48,7 @@ namespace Stocks_Management
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+            app.UseCors("AllowAllOrigins");
 
             //Exception middelware
             app.ConfigureExceptionMiddelware();
@@ -40,7 +56,6 @@ namespace Stocks_Management
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
-
 
             app.MapControllers();
 
