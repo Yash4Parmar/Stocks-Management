@@ -11,5 +11,9 @@ public partial class Order
 
     public int Quantity { get; set; }
 
-    public virtual ICollection<StockOrder> StockOrders { get; set; } = new List<StockOrder>();
+    public bool? IsDeleted { get; set; }
+
+    public int Sid { get; set; }
+
+    public virtual Stock SidNavigation { get; set; } = null!;
 }
